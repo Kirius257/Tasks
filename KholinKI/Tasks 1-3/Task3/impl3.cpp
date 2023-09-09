@@ -36,8 +36,11 @@ void unique_array::create_array(int* arr, int size) {
 	delete[] tmp_arr;
 
 }
-void unique_array::output() {
-	for (int i = 0; i < size; i++) {
-		cout << new_arr[i] << " ";
+
+
+ostream& operator<<(ostream& os, const unique_array& obj) {
+	for (int i = 0; i < obj.size; i++) {
+		os << obj.new_arr[i] << " ";
 	}
+	return os;
 }

@@ -3,12 +3,12 @@
 
 using namespace std;
 
-#define N 10
+#define N 15
 
 int main() {
-	int arr[N] = { 3,5,2,8,0,4,4,3,10,8 };
-	unique_array my_arr;
-	my_arr.create_array(arr, N);
-	my_arr.output();
+	int arr[N] = { 3,5,2,8,0,4,4,3,10,8,2834,0,0,0,0 };
+	unique_array obj;
+	obj.create_array(arr, N);
+	cout << obj << endl;
 	return 0;
 }
