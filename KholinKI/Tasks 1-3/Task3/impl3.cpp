@@ -3,38 +3,49 @@
 
 using namespace std;
 
-
-
-void unique_array::create_array(int* arr, int size) {
-	int* tmp_arr = new int[size];
-	int dublicate = 0;
-	int count = 0;
-	int k = -1;
-	for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
-			if (arr[i] == tmp_arr[j]) {
-				dublicate = 1;
+int count_elements(int* arr, int size) {
+	int count = 1;
+	int i, j;
+	for (i = 1; i < size; i++) {
+		for (j = 0; j < i; j++) {
+			if (arr[i] == arr[j]) {
+				break;
+			}
+			if (j + 1 == i) {
 				break;
 			}
 		}
-		
-		if (dublicate == 1) {
-			dublicate = 0;
+		if (arr[i] == arr[j]) {
 			continue;
 		}
-		else {
-			count++;
-			k++;
-			tmp_arr[k] = arr[i];
-		}
+		count++;
 	}
-	new_arr = new int[count];
-	this->size = count;
-	for (int i = 0; i < count; i++) {
-		new_arr[i] = tmp_arr[i];
-	}
-	delete[] tmp_arr;
+	return count;
+}
 
+
+void unique_array::create_array(unique_array& obj,int* arr, int size) {
+	int count = count_elements(arr, size);
+	int i, j, k;
+	k = 0;
+	obj.new_arr = new int[count];
+	obj.size = count;
+	obj.new_arr[k] = arr[0];
+	for (i = 1; i < size; i++) {
+		for (j = 0; j < i; j++) {
+			if (arr[i] == arr[j]) {
+				break;
+			}
+			if (j + 1 == i) {
+				break;
+			}
+		}
+		if (arr[i] == arr[j]) {
+			continue;
+		}
+		k++;
+		obj.new_arr[k] = arr[i];
+	}
 }
 
 
