@@ -5,36 +5,20 @@ using namespace std;
 
 
 
-void unique_array::create_array(int* arr, int size) {
-	int* tmp_arr = new int[size];
-	int dublicate = 0;
+void unique_array::create_array(unique_array& obj,int* arr, int size) {
 	int count = 0;
-	int k = -1;
 	for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
-			if (arr[i] == tmp_arr[j]) {
-				dublicate = 1;
-				break;
+		for (int j = 0; j < i; j++) {
+			if (arr[i] == arr[j]) {
+				continue;
 			}
 		}
-		
-		if (dublicate == 1) {
-			dublicate = 0;
+		if (i = 0) {
 			continue;
 		}
-		else {
-			count++;
-			k++;
-			tmp_arr[k] = arr[i];
-		}
+		count++;
 	}
-	new_arr = new int[count];
-	this->size = count;
-	for (int i = 0; i < count; i++) {
-		new_arr[i] = tmp_arr[i];
-	}
-	delete[] tmp_arr;
-
+	cout << count << endl;
 }
 
 
