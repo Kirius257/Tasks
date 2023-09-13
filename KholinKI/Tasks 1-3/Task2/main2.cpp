@@ -9,7 +9,7 @@ int main() {
 	float* arr;
 	int size;
 	cout << "¬ведите чЄтный размер массива: " << endl;
-	do {
+	do { 
 		cin >> size;
 
 	} while (size % 2 != 0);
@@ -17,5 +17,6 @@ int main() {
 	create_array(arr, size);
 	swap_halves(arr, size);
 	output(arr, size);
+	delete[] arr;
 	return 0;
 }
