@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <clocale>
 #include "prototypes1.h"
-#include "Static_prototypes.h"
+#include "C:\Users\Кирилл\Статические библиотеки\StaticLibrary\Create_array\Header.h"
 
 using namespace std;
 
