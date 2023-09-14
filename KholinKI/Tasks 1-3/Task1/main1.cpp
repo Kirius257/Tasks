@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <clocale>
 #include "prototypes1.h"
+#include "Static_prototypes.h"
 
 using namespace std;
 
