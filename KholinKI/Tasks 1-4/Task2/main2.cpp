@@ -1,6 +1,6 @@
 #include <iostream>
 #include "prototypes2.h"
-#include "C:\Users\Кирилл\Статические библиотеки\StaticLibrary\Create_array\Header.h"
+#include "C:\Users\Кирилл\Статические библиотеки\StaticLibrary\Create_array\Arrays.h"
 using namespace std;
 
 
