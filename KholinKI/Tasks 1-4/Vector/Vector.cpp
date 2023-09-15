@@ -5,12 +5,10 @@
 
 
 
-Vector::Vector(int size = 3) {
+Vector::Vector(int size) {
 	vec = new float[size];
 	n = size;
-	cout << "¬ведите компоненты вектора: " << endl;
-	cin >> *this;
-}
+}//default constructor
 
 
 Vector::Vector(float fill, int size = 3) {
@@ -39,35 +37,43 @@ Vector::~Vector() {
 
 
 
-//Vector operator+(const Vector& obj1,const Vector& obj2) {
-//	Vector result();
-//	if (obj1.n != obj2.n) {
-//		throw Exeptions<int>(different_vectors, n);
-//	}
-//	for (int i = 0; i < obj1.n; i++) {
-//		
-//	}
-//}
+Vector Vector::operator+(const Vector& obj) {
+	Vector result;
+	if (n != obj.n) {
+		throw Exeptions<int>(different_vectors, n);
+	}
+	for (int i = 0; i < obj.n; i++) {
+		result.vec[i] = vec[i] + obj.vec[i];
+	}
+	return result;
+}
 
 
-//Vector operator-(const Vector& obj) {
-//	
-//}
+Vector Vector::operator-(const Vector& obj) {
+	Vector result;
+	if (n != obj.n) {
+		throw Exeptions<int>(different_vectors, n);
+	}
+	for (int i = 0; i < obj.n; i++) {
+		result.vec[i] = vec[i] - obj.vec[i];
+	}
+	return result;
+}
 
 
-float Vector::operator*(const Vector& obj){
+float Vector::operator*(const Vector& obj)const{
 	float res = (this->vec[0] * obj.vec[0] + this->vec[1] * obj.vec[1] + this->vec[2] * obj.vec[2]);
 	return res;
 }
 
-float Vector::length(const Vector& obj) {
-	float len = sqrtf((*this) * obj);
+float Vector::length()const {
+	float len = sqrtf((*this) * (*this));
 	return len;
 }
 
 
 float Vector::angle(const Vector& obj) {
-	float value = ((*this) * obj) / (length(obj) * length(obj));
+	float value = cos(((*this) * obj) / (length() * obj.length()));
 	return value;
 }
 
@@ -78,9 +84,10 @@ istream& operator>>(istream& stream, Vector& obj) {
 	return stream;
 }
 
-//ostream& operator<<(ostream& stream, const Vector& obj) {
-//	for (int i = 0; i < obj.n; i++) {
-//		cout << obj.vec[i] << " ";
-//	}
-//	return stream;
-//}
+ostream& operator<<(ostream& stream, const Vector& obj) {
+	for (int i = 0; i < obj.n; i++) {
+		cout << obj.vec[i] << " ";
+	}
+	cout << endl;
+	return stream;
+}

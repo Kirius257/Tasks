@@ -10,19 +10,20 @@ private:
 	float* vec;
 	int n;
 public:
-	Vector(int size);//default constructor
+	Vector(int size = 3);//default constructor
 	Vector(float fill, int size);//initialiser-constructor
 	Vector(const Vector& obj);//copy constructor
 	~Vector();//destructor
-	
+
 
 	
 	float angle(const Vector& obj);//cosinus angle between vectors
-	float length(const Vector& obj);//lenght of vector
+	float length()const;//lenght of vector
 
 	
-	float operator*(const Vector& obj);// scalar product
-
+	float operator*(const Vector& obj)const;// scalar product
+	Vector operator+(const Vector& obj);
+	Vector operator-(const Vector& obj);
 
 	friend istream& operator>>(istream& stream, Vector& obj);//input
 	friend ostream& operator<<(ostream& stream, const Vector& obj);//output
