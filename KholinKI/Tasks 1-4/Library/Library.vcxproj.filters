@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Arrays.h">
+    <ClInclude Include="..\..\..\..\Desktop\Arrays.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="class Exeption.h">
+    <ClInclude Include="..\..\..\..\Desktop\class Exeption.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="StaticLibraryImpl.cpp">
+    <ClCompile Include="..\..\..\..\Desktop\StaticLibraryImpl.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
