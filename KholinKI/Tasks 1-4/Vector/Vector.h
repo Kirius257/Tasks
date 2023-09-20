@@ -17,13 +17,15 @@ public:
 
 
 	
-	float angle(const Vector& obj);//cosinus angle between vectors
+	float angle(const Vector& obj)const;//cosinus angle between vectors
 	float length()const;//lenght of vector
 
 	
 	float operator*(const Vector& obj)const;// scalar product
 	Vector operator+(const Vector& obj);
 	Vector operator-(const Vector& obj);
+	Vector& operator=(const Vector& obj);
+	bool operator==(const Vector& obj);
 
 	friend istream& operator>>(istream& stream, Vector& obj);//input
 	friend ostream& operator<<(ostream& stream, const Vector& obj);//output

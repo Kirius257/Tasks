@@ -1,6 +1,6 @@
 #include <cmath>
 #include "Vector.h"
-#include "C:\Users\Кирилл\Статические библиотеки\StaticLibrary\Create_array\class Exeption.h"
+#include "class Exeption.h"
 
 
 
@@ -72,10 +72,40 @@ float Vector::length()const {
 }
 
 
-float Vector::angle(const Vector& obj) {
+float Vector::angle(const Vector& obj)const {
 	float value = cos(((*this) * obj) / (length() * obj.length()));
 	return value;
 }
+
+bool Vector::operator==(const Vector& obj){
+	if (n == obj.n) {
+		return false;
+	}
+	else{	
+		for (int i = 0; i < n; i++) {
+			if (vec[i] == obj.vec[i]) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+Vector& Vector::operator=(const Vector& obj) {
+	if (*this == obj) {
+		return *this;
+	}
+	if (n != obj.n) {
+		n = obj.n;
+		delete[] vec;
+		vec = new float[n];
+	}
+	for (int i = 0; i < n; i++) {
+		vec[i] = obj.vec[i];
+	}
+	return *this;
+}
+
 
 istream& operator>>(istream& stream, Vector& obj) {
 	for (int i = 0; i < obj.n; i++) {
