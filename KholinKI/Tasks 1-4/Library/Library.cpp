@@ -1,4 +1,4 @@
-#include "Arrays.h"
+﻿#include "framework.h"
 
 void create_array(float*& arr, int size) {
 	arr = new float[size];
@@ -12,3 +12,4 @@ void output(float* arr, int size) {
 		cout << left << setw(10) << arr[i] << " ";
 	}
 }
+

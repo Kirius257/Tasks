@@ -2,3 +2,4 @@
 #define _PROTOTYPES1_H
 void changer(float* arr, int size);
 #endif
+#pragma once

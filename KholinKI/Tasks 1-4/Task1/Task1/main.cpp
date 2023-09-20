@@ -1,8 +1,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <clocale>
-#include "prototypes1.h"
-#include "Arrays.h"
+#include "prototypes.h"
+#include "framework.h"
+
 
 using namespace std;
 

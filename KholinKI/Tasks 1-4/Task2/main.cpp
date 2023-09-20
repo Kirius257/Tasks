@@ -1,6 +1,6 @@
 #include <iostream>
-#include "prototypes2.h"
-#include "Arrays.h"
+#include "prototypes.h"
+#include "framework.h"
 using namespace std;
 
 
@@ -9,7 +9,7 @@ int main() {
 	float* arr;
 	int size;
 	cout << "¬ведите чЄтный размер массива: " << endl;
-	do { 
+	do {
 		cin >> size;
 
 	} while (size % 2 != 0);

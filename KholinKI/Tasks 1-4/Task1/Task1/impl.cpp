@@ -1,4 +1,4 @@
-#include "prototypes1.h"
+#include "prototypes.h"
 #include <math.h>
 #include <iostream>
 using namespace std;

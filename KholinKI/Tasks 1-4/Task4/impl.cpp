@@ -1,6 +1,6 @@
 #include <cmath>
 #include "Vector.h"
-#include "class Exeption.h"
+#include "framework.h"
 
 
 
@@ -61,7 +61,7 @@ Vector Vector::operator-(const Vector& obj) {
 }
 
 
-float Vector::operator*(const Vector& obj)const{
+float Vector::operator*(const Vector& obj)const {
 	float res = (this->vec[0] * obj.vec[0] + this->vec[1] * obj.vec[1] + this->vec[2] * obj.vec[2]);
 	return res;
 }
@@ -77,13 +77,13 @@ float Vector::angle(const Vector& obj)const {
 	return value;
 }
 
-bool Vector::operator==(const Vector& obj){
-	if (n == obj.n) {
+bool Vector::operator==(const Vector& obj) {
+	if (n != obj.n) {
 		return false;
 	}
-	else{	
+	else {
 		for (int i = 0; i < n; i++) {
-			if (vec[i] == obj.vec[i]) {
+			if (vec[i] != obj.vec[i]) {
 				return false;
 			}
 		}

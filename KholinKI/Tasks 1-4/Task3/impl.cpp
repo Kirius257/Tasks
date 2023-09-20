@@ -1,5 +1,5 @@
 #include <iostream>
-#include "prototypes3.h"
+#include "prototypes.h"
 
 using namespace std;
 
@@ -24,7 +24,7 @@ int count_elements(int* arr, int size) {
 }
 
 
-void unique_array::create_array(unique_array& obj,int* arr, int size) {
+void unique_array::create_array(unique_array& obj, int* arr, int size) {
 	int count = count_elements(arr, size);
 	int i, j, k;
 	k = 0;
