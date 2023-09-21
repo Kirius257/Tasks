@@ -1,0 +1,7 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2128,5): warning : The referenced project '..\Library\Library.vcxproj' does not exist.
+  impl.cpp
+  main.cpp
+  Создание кода...
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "void __cdecl output(float *,int)" (?output@@YAXPEAMH@Z) в функции main.
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "void __cdecl create_array(float * &,int)" (?create_array@@YAXAEAPEAMH@Z) в функции main.
+C:\Users\Кирилл\Tasks\KholinKI\Tasks 1-4\MyTasks\x64\Debug\Task2.exe : fatal error LNK1120: неразрешенных внешних элементов: 2

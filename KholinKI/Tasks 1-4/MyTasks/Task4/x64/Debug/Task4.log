@@ -1,0 +1,5 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2128,5): warning : The referenced project '..\Library\Library.vcxproj' does not exist.
+  impl.cpp
+  main.cpp
+  Создание кода...
+  Task4.vcxproj -> C:\Users\Кирилл\Tasks\KholinKI\Tasks 1-4\MyTasks\x64\Debug\Task4.exe
