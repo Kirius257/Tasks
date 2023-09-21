@@ -21,18 +21,21 @@ public:
 
 	double operator*(const Vector<T>& obj)const;// scalar product
 	Vector operator+(const Vector<T>& obj);
-	/*Vector operator-(const Vector<T>& obj);
-	Vector operator=(const Vector<T>& obj);
-	bool operator==(const Vector<T>& obj)const;*/
-	\
-	//friend ostream& operator<<(ostream& s, const Vector<T>& obj);
-	friend istream& operator>>(istream& s,		 Vector<T>& obj);
+	Vector operator-(const Vector<T>& obj);
+	Vector& operator=(const Vector<T>& obj);
+	bool operator==(const Vector<T>& obj)const;
+	
+	void output()const;
+	void input();
 };
 
 template <class T>
 Vector<T>::Vector(int size) {
 	this->size = size;
 	vec = new T[size];
+	for (int i = 0; i < size; i++) {
+		vec[i] = 0;
+	}
 }
 
 template <class T>
@@ -67,40 +70,76 @@ double Vector<T>::length()const {
 
 template <class T>
 Vector<T> Vector<T>::operator+(const Vector<T>& obj) {
-	Vector<T> res(size);
+	Vector<T>res1(size);
 	if (size != obj.size) {
-		T* tmp = new T[obj.size];
-		for (int i = 0; i < obj.size; i++) {
-			tmp[i] = obj.vec[i];
+		throw Exeptions<int>(different_vectors, size);
+	}
+	else {
+		for (int i = 0; i < size; i++) {
+			res1.vec[i] = vec[i] + obj.vec[i];
 		}
-		delete[] vec;
-		size = obj.size;
-		vec = tmp;
 	}
-	for (int i = 0; i < size; i++) {
-		res.vec[i] = vec[i] + obj.vec[i];
-	}
-	return res;
+	return res1;
 }
 
 template <class T>
-istream& operator>>(istream& s, Vector<T>& obj) {
-	for (int i = 0; i < obj.size; i++) {
-		s >> obj.vec[i];
+Vector<T> Vector<T>::operator-(const Vector<T>& obj) {
+	Vector<T>res1(size);
+	if (size != obj.size) {
+		throw Exeptions<int>(different_vectors, size);
 	}
-	return s;
+	else {
+		for (int i = 0; i < size; i++) {
+			res1.vec[i] = vec[i] - obj.vec[i];
+		}
+	}
+	return res1;
 }
 
-//template <class T>
-//ostream& operator<<(ostream& s, const Vector<T>& obj) {
-//	for (int i = 0; i < obj.size; i++) {
-//		s << obj.vec[i] << " ";
-//	}
-//	s << endl;
-//	return s;
-//}
-//Vector operator-(const Vector<T>& obj);
-//Vector operator=(const Vector<T>& obj);
-//bool operator==(const Vector<T>& obj)const;
 
+template <class T>
+Vector<T>& Vector<T>::operator=(const Vector<T>& obj) {
+	if (*this == obj) {
+		return *this;
+	}
+	else {
+		if (size != obj.size) {
+			delete[] vec;
+			size = obj.size;
+			vec = new T[size];
+		}
+		for (int i = 0; i < size; i++) {
+			vec[i] = obj.vec[i];
+		}
+	}
+	return *this;
+}
+
+template <class T>
+bool Vector<T>::operator==(const Vector<T>& obj)const {
+	if (size != obj.size) {
+	return false;
+	}
+	for (int i = 0; i < size; i++) {
+		if (vec[i] != obj.vec[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+template <class T>
+void Vector<T>::input(){
+	for (int i = 0; i < size; i++) {
+		cin >> vec[i];
+	}
+}
+
+template <class T>
+void Vector<T>::output()const {
+	for (int i = 0; i < size; i++) {
+		cout << vec[i] << " ";
+	}
+	cout << endl;
+}
 #endif

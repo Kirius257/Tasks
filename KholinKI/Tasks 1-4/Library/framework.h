@@ -29,7 +29,7 @@ Exeptions<T>::Exeptions(TypeExeption type, T wrong_value) {
 template <class T>
 void Exeptions<T>::what()const {
 	switch (type) {//метки для описания исключений(что произошло?Почему?Как исправить и прочее
-	case different_vectors: cout << "Векторы различны по количеству компонент!" << endl;
+	case different_vectors:{ cout << "Векторы различны по количеству компонент!" << endl; break;}
 	default: {cout << "Exeption not found!" << endl; abort(); }
 	}
 }
