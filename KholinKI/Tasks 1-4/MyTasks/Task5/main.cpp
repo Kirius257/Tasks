@@ -1,7 +1,8 @@
 #include "Vector.h"
 #include <iostream>
 using namespace std;
-//ВЕКТОРЫ ДОЛЖНЫ БЫТЬ разного имени
+
+
 
 int main() {
 	setlocale(LC_ALL, "rus");
