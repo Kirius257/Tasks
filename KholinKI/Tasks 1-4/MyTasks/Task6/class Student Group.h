@@ -2,46 +2,70 @@
 #define _CLASS_STUDENT_GROUP_H
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 class ListGroups {
 private:
 	Group** list;
 	int count_groups;
+	void realloc();
 public:
-	//конструкторы и деструктор
+	ListGroups(const string& path);
+	~ListGroups();
+
+	
+	void add_entry(const Student& person);
+	void delete_entry(int index);
+
+	ListGroups& operator=(const ListGroups& obj);
 };
 
 class Group {
 private:
-	Students data;
+	Student* data;
 	int num_students;
 public:
-	//конструкторы
-	void add_entry(const string& new_entry);
-	void find();
-	void delete_entry() 
+	Group(int num_students_);
+	~Group();
+
+	int find_student();//swtich
+	void set_data(const string& surname, const string& name, const string& patronymic,
+				  const string& num_phone,int day,int month,int year);
+
+	Student& operator[](int index);
+	Student& operator=(const Student& obj);
+
+	
 };
 
 
-struct Students {
-	//конструкторы
+struct Student {
 	string surname;
 	string name;
 	string patronymic;
-	string gender;
-	string nation;
-	string height;
-	string weight;
 	string num_phone;
-	string postal_code;
-	Date date;
+	Date* date;
+	int num_dates;
+
+	Student(int num_dates_);
+	Student(const Student& obj);
+
+
+	Student& operator=(const Student& obj);
+	~Student();
+
+	friend ostream operator<<(ostream& stream, const Group& obj);
 };
 
 struct Date {
 	int day;
 	int month;
 	int year;
+
+	Date(int day, int month, int year);
+
+	friend ostream operator<<(ostream& stream, const Date& obj);
 };
 
 
