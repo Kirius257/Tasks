@@ -1,0 +1,8 @@
+﻿  ListGroup.cpp
+  Student.cpp
+C:\Users\Кирилл\Tasks\KholinKI\Tasks 1-6\MyTasks\Task6\Student.cpp(7,14): warning C4305: =: усечение из "__int64" в "int"
+C:\Users\Кирилл\Tasks\KholinKI\Tasks 1-6\MyTasks\Task6\Student.cpp(7,14): warning C4309: =: усечение константного значения
+  StudentGroup.cpp
+  main.cpp
+  Создание кода...
+  Task6.vcxproj -> C:\Users\Кирилл\Tasks\KholinKI\Tasks 1-6\MyTasks\x64\Debug\Task6.exe

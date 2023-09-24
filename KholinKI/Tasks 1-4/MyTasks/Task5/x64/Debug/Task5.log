@@ -1,3 +1,0 @@
-﻿  main.cpp
-main.obj : error LNK2019: ссылка на неразрешенный внешний символ "class std::basic_istream<char,struct std::char_traits<char> > & __cdecl operator>>(class std::basic_istream<char,struct std::char_traits<char> > &,class Vector<float> &)" (??5@YAAEAV?$basic_istream@DU?$char_traits@D@std@@@std@@AEAV01@AEAV?$Vector@M@@@Z) в функции main.
-C:\Users\Кирилл\Tasks\KholinKI\Tasks 1-4\MyTasks\x64\Debug\Task5.exe : fatal error LNK1120: неразрешенных внешних элементов: 1

@@ -1,0 +1,6 @@
+﻿  main.cpp
+C:\Users\Кирилл\Tasks\KholinKI\Tasks 1-4\MyTasks\Task5\Vector.h(66,29): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\Кирилл\Tasks\KholinKI\Tasks 1-4\MyTasks\Task5\Vector.h(65,33): message : во время компиляции функции-члена класс шаблон "double Vector<float>::length(void) const"
+C:\Users\Кирилл\Tasks\KholinKI\Tasks 1-4\MyTasks\Task5\main.cpp(28,14): message : см. первую ссылку на "Vector<float>::length" в "main"
+C:\Users\Кирилл\Tasks\KholinKI\Tasks 1-4\MyTasks\Task5\main.cpp(9,17): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "Vector<float>"
+  Task5.vcxproj -> C:\Users\Кирилл\Tasks\KholinKI\Tasks 1-4\MyTasks\x64\Debug\Task5.exe
