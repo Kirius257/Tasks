@@ -8,22 +8,25 @@
 
 class Group {
 private:
-	Student** data;
-	int num_students;
+	Student** data;//information about students group
+	int num_students;//max size data
+	int step;//new place for newe students
+	void realloc();//change size data
 public:
-	Group();
-	Group(int num_students_);
-	Group(const Group& obj);
+	Group(int num_students_ = 25,int step = 10);//standard count students in group
+	Group(const Group& obj);//copy group
 	~Group();
 
 	//int find_student();//switch
-	void set_data(int index,const string& surname, const string& name, const string& patronymic,
-				  const string& num_phone,int day,int month,int year);
+	int end();//get index end of list group
+	void add_entry(const Student& person);//add student in group
+	//void delete_entry(int index);//expel a student
 	int get_num_students() {return num_students;}
 	//Student& operator[](int index);
-	//Group& operator=(const Student& obj);
+	Group& operator=(const Group& obj);
 
-	
+protected:
+	int current_num;//current size data
 };
 //
 //

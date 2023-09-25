@@ -6,21 +6,17 @@
 #include <fstream>
 
 class ListGroups {
-private:
-	Group** list;
-	int count_groups;
-	/*void realloc();*/
 public:
-	ListGroups();
-	ListGroups(const string& path);
-	ListGroups(const ListGroups& obj);
-	~ListGroups();
+	ListGroups();//default constructor
+	ListGroups(const string& path);//read file with list groups
+	ListGroups(const ListGroups& obj);//copy groups
+	~ListGroups();//delete list groups
 
 	//
-	//void add_entry(const Student& person);
-	//void delete_entry(int index);
+	Group** list;//array pointers to groups
+	int count_groups;//count groups
 
-	//ListGroups& operator=(const ListGroups& obj);
+	ListGroups& operator=(const ListGroups& obj);
 };
 
 
