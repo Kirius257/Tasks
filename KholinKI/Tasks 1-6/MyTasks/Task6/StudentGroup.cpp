@@ -88,47 +88,7 @@ int Group::find(const Student& obj)const {
 	return -1;
 }
 
-void Group::search_to_output(const string& param,signs sign)const {
-	switch (sign) {
-	case surname_:
-	{
-		for (int i = 0; i < current_num; i++) {
-		if (data[i]->surname == param) {
-			cout << *data[i];
-			}
-		}
-		break;
-	}
-	case name_:
-	{
-		for (int i = 0; i < current_num; i++) {
-			if (data[i]->name == param) {
-				cout << *data[i];
-			}
-		}
-		break;
-	}
-	case patronymic_:
-	{
-		for (int i = 0; i < current_num; i++) {
-			if (data[i]->patronymic == param) {
-				cout << *data[i];
-			}
-		}
-		break;
-	}
-	case phone_number_:
-	{
-		for (int i = 0; i < current_num; i++) {
-			if (data[i]->num_phone == param) {
-				cout << *data[i];
-			}
-		}
-		break;
-	}
-	default: cout << "Student with parametr " << param << " in other group or not exist!" << endl; 
-	}
-}
+
 
 int Group::find_student()const {
 	cout << "Choose sign: " << endl;
@@ -142,28 +102,52 @@ int Group::find_student()const {
 	cin >> choice;
 
 	switch (choice) {
-	case surname_:
-	{cout << "Enter surname student: " << endl;
-	string param; cin >> param;
-	search_to_output(param,surname_); break; }
-
+	case surname_: {
+		cout << "Enter surname student: " << endl;
+		string param; cin >> param;
+		Student sign; sign.surname = param;
+		for (int i = 0; i < current_num; i++) {
+			if (data[i]->surname == sign.surname) {
+				cout << *data[i];
+			}
+		}
+		break;
+	}
 	case name_:
 	{cout << "Enter name student: " << endl;
 	string param; cin >> param;
-	search_to_output(param,name_); break; }
-
+	Student sign; sign.name = param;
+	for (int i = 0; i < current_num; i++) {
+		if (data[i]->name == sign.name) {
+			cout << *data[i];
+		}
+	}
+	break;
+	}
 	case patronymic_:
 	{cout << "Enter patronymic student: " << endl;
 	string param; cin >> param;
-	search_to_output(param,patronymic_); break; }
-
+	Student sign; sign.patronymic = param;
+	for (int i = 0; i < current_num; i++) {
+		if (data[i]->patronymic == sign.patronymic) {
+			cout << *data[i];
+		}
+	}
+	break;
+	}
 	case phone_number_:
 	{cout << "Enter phone number student: " << endl;
 	string param; cin >> param;
-	search_to_output(param,phone_number_); break; }
+	Student sign; sign.num_phone = param;
+	for (int i = 0; i < current_num; i++) {
+		if (data[i]->num_phone == sign.num_phone) {
+			cout << *data[i];
+			}
+		}
+		break;
+	}
 	default: throw Exeptions<int>(CaseNotFound, choice); 
 	}
-	
 }
 
 void Group::expel_student(const Student& person) {

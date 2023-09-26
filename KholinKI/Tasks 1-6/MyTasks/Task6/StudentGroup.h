@@ -12,7 +12,6 @@ private:
 	int num_students;//max size data
 	int step;//new place for newe students
 	void realloc();//change size data
-	void search_to_output(const string& param, signs sign)const;//search student and show info
 public:
 	//#create list
 	Group(int num_students_ = 25,int step = 10);//standard count students in group
