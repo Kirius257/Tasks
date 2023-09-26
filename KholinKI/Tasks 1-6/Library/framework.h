@@ -8,7 +8,7 @@
 using namespace std;
 
 
-enum TypeExeption { different_vectors,closed_file };//набор исключений
+enum TypeExeption { different_vectors,closed_file,NotExistIndex,CaseNotFound };//набор исключений
 template <class T>
 class Exeptions {
 private:
@@ -31,6 +31,8 @@ void Exeptions<T>::what()const {
 	switch (type) {//метки для описания исключений(что произошло?Почему?Как исправить и прочее
 	case different_vectors:{ cout << "Vectors are different" << endl; break;}
 	case closed_file: {cout << "Failed access to file!" << endl; break; }
+	case NotExistIndex: {cout << "Element with index " << wrong_value << "not exist!" << endl; break; }
+	case CaseNotFound: {cout << "Case with number " << wrong_value << "not found on operator switch!" << endl;  break; }
 	default: {cout << "Exeption not found!" << endl; abort(); }
 	}
 }

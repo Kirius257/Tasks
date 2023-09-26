@@ -13,23 +13,30 @@ ListGroups::ListGroups(const string& path) {
 
 	int num_students;
 	int residue_students;
+	int tmp_num_students;
 	file >> count_groups >> num_students;//number of groups and number of students in the group
-	num_students = num_students / count_groups;
-	residue_students = num_students % count_groups;
+	residue_students = num_students % count_groups;//residue
+	num_students = num_students / count_groups;//equal distribution
+	tmp_num_students = num_students;//save old num students
 	list = new Group*[count_groups];
 	for (int i = 0; i < count_groups; i++) {
 		list[i] = new Group();
 	}
 	for (int i = 0; i < count_groups; i++) {
+		if (i == 0) {//default
+			num_students += residue_students;
+		}
+		else {
+			num_students = tmp_num_students;
+		}
 		for (int j = 0; j < num_students; j++) {
 			string sur, name, patr, phone;
 			int day, month, year;
 			file >> sur >> name >> patr >> phone >> day >> month >> year;
 			Student new_student(sur, name, patr, phone, day, month, year);
-			list[i]->add_entry(new_student);
+			list[i]->enrol_student(new_student);
 		}
 	}
-	//учесть остаток студентов и добавить в любую группу
 }
 //
 ListGroups::ListGroups(const ListGroups& obj) {
@@ -43,8 +50,10 @@ ListGroups::ListGroups(const ListGroups& obj) {
 ListGroups::~ListGroups() {
 	for (int i = 0; i < count_groups; i++) {
 		delete list[i];
+		list[i] = nullptr;
 	}
 	delete[] list;
+	list = nullptr;
 	count_groups = 0;
 }
 

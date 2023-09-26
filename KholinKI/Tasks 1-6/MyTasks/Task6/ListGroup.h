@@ -1,7 +1,7 @@
 #ifndef _LISTGROUP_H
 #define _LISTGROUP_H
 
-#include "framework.h"
+
 #include "StudentGroup.h"
 #include <fstream>
 

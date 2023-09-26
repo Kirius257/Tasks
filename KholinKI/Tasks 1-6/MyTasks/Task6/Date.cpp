@@ -25,3 +25,8 @@ Date& Date::operator=(const Date& obj) {
 	year = obj.year;
 	return *this;
 }
+
+ostream& operator<<(ostream& stream, const Date& obj) {
+	stream << obj.day << "." << obj.month << "." << obj.year;
+	return stream;
+}

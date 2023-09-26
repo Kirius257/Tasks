@@ -4,7 +4,7 @@ Student::Student() {
 	surname = "";
 	name = "";
 	patronymic = "";
-	num_phone = 0;
+	num_phone = "";
 	date = new Date();
 }
 
@@ -13,7 +13,7 @@ Student::Student(const string& surname, const string& name, const string& patron
 	this->surname = surname;
 	this->name = name;
 	this->patronymic = patronymic;
-	this->num_phone = stoi(num_phone);
+	this->num_phone = num_phone;
 	date = new Date(day, month, year);
 }
 
@@ -27,6 +27,7 @@ Student::Student(const Student& obj) {
 
 Student::~Student() {
 	delete date;
+	date = nullptr;
 }
 
 
@@ -37,4 +38,16 @@ Student& Student::operator=(const Student& obj) {
 	num_phone = obj.num_phone;
 	*date = *(obj.date);
 	return *this;
+}
+
+bool Student::operator==(const Student& obj)const {
+	if (num_phone == obj.num_phone) {//numbers phones are different in the one country!
+		return true;
+	}
+	else { return false; }
+}
+
+ostream& operator<<(ostream& stream, const Student& obj) {
+	stream << obj.surname << " " << obj.name << " " << obj.patronymic << " " << obj.num_phone << " " << *(obj.date) << endl;
+	return stream;
 }
