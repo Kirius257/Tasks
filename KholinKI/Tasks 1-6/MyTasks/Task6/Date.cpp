@@ -1,5 +1,5 @@
 #include "Date.h"
-
+#include <string>
 Date::Date() {
 	day = 0;
 	month = 0;
@@ -27,6 +27,15 @@ Date& Date::operator=(const Date& obj) {
 }
 
 ostream& operator<<(ostream& stream, const Date& obj) {
-	stream << obj.day << "." << obj.month << "." << obj.year;
+	string s_day = to_string(obj.day);
+	string s_month = to_string(obj.month);
+	string s_year = to_string(obj.year);
+	if (obj.day > 0 && obj.day < 10) {
+		s_day = "0" + s_day;;
+	}
+	if (obj.month > 0 && obj.month < 10) {
+		s_month = "0" + s_month;
+	}
+	stream << s_day << "." << s_month << "." << s_year;
 	return stream;
 }

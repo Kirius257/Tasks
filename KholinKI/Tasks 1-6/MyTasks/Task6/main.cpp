@@ -1,11 +1,11 @@
 #include "ListGroup.h"
 
 //#test 1
-//	Student st("Smith", "John", "Michael", "+1234567890", 15, 9, 1995);
+//	Student st("Smith", "John", "Michael", 1234567890, 15, 9, 1995);
 
 
 //# test 2
-//Student me("Õîëèí", "Êèğèëë", "Èãîğåâè÷", "79202524290", 29, 4, 2004);
+//Student me("Õîëèí", "Êèğèëë", "Èãîğåâè÷", 79202524290, 29, 4, 2004);
 
 
 int main() {
@@ -13,6 +13,6 @@ int main() {
 	const string student_groups = "Students.txt";
 	ListGroups faculty(student_groups);
 
-	faculty.list[0]->find_student();
+	faculty.list[1]->find_student();
 	return 0;
 }

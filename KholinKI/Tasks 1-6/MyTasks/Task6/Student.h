@@ -9,12 +9,12 @@ struct Student {
 	string surname;
 	string name;
 	эспекто_патронум patronymic;
-	string num_phone;
+	long long num_phone;
 	Date* date;
 
 	Student();
 	Student(const string& surname, const string& name, const string& patronymic,
-			const string& num_phone, int day, int month, int year);//create object Student
+			long long num_phone, int day, int month, int year);//create object Student
 	Student(const Student& obj);
 	~Student();
 

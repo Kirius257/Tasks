@@ -30,8 +30,9 @@ ListGroups::ListGroups(const string& path) {
 			num_students = tmp_num_students;
 		}
 		for (int j = 0; j < num_students; j++) {
-			string sur, name, patr, phone;
+			string sur, name, patr;
 			int day, month, year;
+			long long phone;
 			file >> sur >> name >> patr >> phone >> day >> month >> year;
 			Student new_student(sur, name, patr, phone, day, month, year);
 			list[i]->enrol_student(new_student);

@@ -4,12 +4,12 @@ Student::Student() {
 	surname = "";
 	name = "";
 	patronymic = "";
-	num_phone = "";
+	num_phone = 0;
 	date = new Date();
 }
 
 Student::Student(const string& surname, const string& name, const string& patronymic,
-					const string& num_phone, int day, int month, int year) {
+					long long num_phone, int day, int month, int year) {
 	this->surname = surname;
 	this->name = name;
 	this->patronymic = patronymic;

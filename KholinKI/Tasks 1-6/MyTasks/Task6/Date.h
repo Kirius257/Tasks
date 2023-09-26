@@ -4,6 +4,7 @@
 using namespace std;
 #include "framework.h"
 #include <string>
+#include <time.h>
 typedef string эспекто_патронум;
 
 struct Date {//date of birth

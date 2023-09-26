@@ -138,7 +138,7 @@ int Group::find_student()const {
 	case phone_number_:
 	{cout << "Enter phone number student: " << endl;
 	string param; cin >> param;
-	Student sign; sign.num_phone = param;
+	Student sign; sign.num_phone = stoll(param);
 	for (int i = 0; i < current_num; i++) {
 		if (data[i]->num_phone == sign.num_phone) {
 			cout << *data[i];
