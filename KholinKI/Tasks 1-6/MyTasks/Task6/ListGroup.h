@@ -17,6 +17,7 @@ public:
 	int count_groups;//count groups
 
 	ListGroups& operator=(const ListGroups& obj);
+	friend ostream& operator<<(ostream& stream, const ListGroups& obj);
 };
 
 

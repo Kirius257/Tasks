@@ -1,7 +1,7 @@
 #include "ListGroup.h"
 
 //#test 1
-//	Student st("Smith", "John", "Michael", 1234567890, 15, 9, 1995);
+//Student st("Smith", "John", "Michael", 1234567890, 15, 9, 1995);
 
 
 //# test 2
@@ -12,7 +12,6 @@ int main() {
 	setlocale(LC_ALL, "rus");
 	const string student_groups = "Students.txt";
 	ListGroups faculty(student_groups);
-
-	faculty.list[1]->find_student();
+	cout << faculty;
 	return 0;
 }

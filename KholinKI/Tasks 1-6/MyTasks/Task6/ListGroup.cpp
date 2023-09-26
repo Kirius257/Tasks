@@ -66,4 +66,12 @@ ListGroups& ListGroups::operator=(const ListGroups& obj) {
 	return *this;
 }
 
+ostream& operator<<(ostream& stream, const ListGroups& obj) {
+	for (int i = 0; i < obj.count_groups; i++) {
+		cout << "			" << i + 1;
+		cout << endl;
+		stream << *(obj.list[i]);
+	}
+	return stream;
+}
 

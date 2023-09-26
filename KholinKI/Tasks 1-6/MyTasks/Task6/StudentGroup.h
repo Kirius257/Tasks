@@ -26,7 +26,7 @@ public:
 	void enrol_student(const Student& person);//add student in group
 	void expel_student(int index);//expel a student
 	void expel_student(const Student& person);//expel on student
-	int find_student()const;//find student on characteristic
+	void find_student()const;//find student on characteristic
 
 	//#get data about students
 	int get_num_students()const {return num_students;}
@@ -35,6 +35,9 @@ public:
 	//#overload operators
 	Group& operator=(const Group& obj);
 	Student& operator[](int index);
+	
+	//#output
+	friend ostream& operator<<(ostream& stream, const Group& obj);
 protected:
 	int current_num;//current size data
 };

@@ -90,7 +90,7 @@ int Group::find(const Student& obj)const {
 
 
 
-int Group::find_student()const {
+void Group::find_student()const {
 	cout << "Choose sign: " << endl;
 	cout << "1. Search on surname" << endl;
 	cout << "2. Search on name" << endl;
@@ -176,4 +176,13 @@ Group& Group::operator=(const Group& obj) {
 
 Student& Group::operator[](int index){
 	return *(data[index]);
+}
+
+ostream& operator<<(ostream& stream, const Group& obj) {
+	cout << "		  STUDENT GROUP " << endl;
+	for (int i = 0; i < obj.current_num; i++) {
+		stream << *(obj.data[i]);
+	}
+	cout << endl << endl << endl;
+	return stream;
 }
