@@ -21,6 +21,7 @@ ListGroups::ListGroups(const string& path) {
 	list = new Group*[count_groups];
 	for (int i = 0; i < count_groups; i++) {
 		list[i] = new Group();
+		list[i]->set_number(i + 1);
 	}
 	for (int i = 0; i < count_groups; i++) {
 		if (i == 0) {//default
@@ -68,7 +69,7 @@ ListGroups& ListGroups::operator=(const ListGroups& obj) {
 
 ostream& operator<<(ostream& stream, const ListGroups& obj) {
 	for (int i = 0; i < obj.count_groups; i++) {
-		cout << "			" << i + 1;
+		cout << "			" << obj.list[i]->get_number();
 		cout << endl;
 		stream << *(obj.list[i]);
 	}

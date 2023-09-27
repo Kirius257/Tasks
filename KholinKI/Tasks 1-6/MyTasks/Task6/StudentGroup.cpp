@@ -8,6 +8,7 @@ using namespace std;
 Group::Group(int num_students_,int step) {//
 	this->step = step;
 	current_num = 0;
+	number = 0;
 	num_students = num_students_;
 	data = new Student*[num_students_];
 	for (int i = 0; i < num_students; i++) {
@@ -18,6 +19,7 @@ Group::Group(int num_students_,int step) {//
 Group::Group(const Group& obj) {
 	num_students = obj.num_students;
 	step = obj.step;
+	number = obj.number;
 	data = new Student * [num_students];
 	for (int i = 0; i < num_students; i++) {
 		data[i] = new Student(*(obj.data[i]));
@@ -36,6 +38,7 @@ Group::~Group() {
 	data = nullptr;
 	num_students = 0;
 	step = 0;
+	number = 0;
 }
 
 int Group::end() {
@@ -79,6 +82,93 @@ void Group::expel_student(int index) {
 	current_num--;
 }
 
+int* Group::find_student_surname(const Student& sign)const {
+	int count = 0;
+	for (int i = 0; i < current_num; i++) {
+		if (data[i]->surname == sign.surname) {
+			count++;
+		}
+	}
+	
+	if (count == 0) {
+		int* indices = new int[count+1];
+		indices[0] = -1;
+		return indices;
+	}
+	else {
+		int* indices = new int[count];
+		int j = 0;
+		for (int i = 0; i < current_num; i++) {
+			if (data[i]->surname == sign.surname) {
+				indices[j] = i;
+				j++;
+			}
+		}
+		return indices;
+	}
+}
+
+int* Group::find_student_name(const Student& sign)const {
+	int count = 0;
+	for (int i = 0; i < current_num; i++) {
+		if (data[i]->name == sign.name) {
+			count++;
+		}
+	}
+	
+	if (count == 0) {
+		int* indices = new int[count+1];
+		indices[0] = -1;
+		return indices;
+	}
+	else {
+		int* indices = new int[count];
+		int j = 0;
+		for (int i = 0; i < current_num; i++) {
+			if (data[i]->name == sign.name) {
+				indices[j] = i;
+				j++;
+			}
+		}
+		return indices;
+	}
+}
+
+int* Group::find_student_patronymic(const Student& sign)const {
+	int count = 0;
+	for (int i = 0; i < current_num; i++) {
+		if (data[i]->patronymic == sign.patronymic) {
+			count++;
+		}
+	}
+	
+	if (count == 0) {
+		int* indices = new int[count+1];
+		indices[0] = -1;
+		return indices;
+	}
+	else {
+		int* indices = new int[count];
+		int j = 0;
+		for (int i = 0; i < current_num; i++) {
+			if (data[i]->patronymic == sign.patronymic) {
+				indices[j] = i;
+				j++;
+			}
+		}
+		return indices;
+	}
+}
+
+int Group::find_student_number(const Student& sign)const {
+	for (int index = 0; index < current_num; index++) {
+		if (data[index]->num_phone == sign.num_phone) {
+			return index;
+		}
+	}
+	return -1;
+}
+
 int Group::find(const Student& obj)const {
 	for (int index = 0; index < current_num; index++) {
 			if (*(data[index]) == obj) {
@@ -88,67 +178,8 @@ int Group::find(const Student& obj)const {
 	return -1;
 }
 
-
-
-int Group::find_student()const {
-	//массив индексов
-	cout << "Choose sign: " << endl;
-	cout << "1. Search on surname" << endl;
-	cout << "2. Search on name" << endl;
-	cout << "3. Search on patronymic" << endl;
-	cout << "4. Search on phone number" << endl;
-
-
-	int choice;
-	cin >> choice;
-
-	switch (choice) {
-	case surname_: {
-		cout << "Enter surname student: " << endl;
-		string param; cin >> param;
-		Student sign; sign.surname = param;
-		for (int i = 0; i < current_num; i++) {
-			if (data[i]->surname == sign.surname) {
-				cout << *data[i];
-			}
-		}
-		break;
-	}
-	case name_:
-	{cout << "Enter name student: " << endl;
-	string param; cin >> param;
-	Student sign; sign.name = param;
-	for (int i = 0; i < current_num; i++) {
-		if (data[i]->name == sign.name) {
-			cout << *data[i];
-		}
-	}
-	break;
-	}
-	case patronymic_:
-	{cout << "Enter patronymic student: " << endl;
-	string param; cin >> param;
-	Student sign; sign.patronymic = param;
-	for (int i = 0; i < current_num; i++) {
-		if (data[i]->patronymic == sign.patronymic) {
-			cout << *data[i];
-		}
-	}
-	break;
-	}
-	case phone_number_:
-	{cout << "Enter phone number student: " << endl;
-	string param; cin >> param;
-	Student sign; sign.num_phone = stoll(param);
-	for (int i = 0; i < current_num; i++) {
-		if (data[i]->num_phone == sign.num_phone) {
-			cout << *data[i];
-			}
-		}
-		break;
-	}
-	default: throw Exeptions<int>(CaseNotFound, choice); 
-	}
+void Group::show(int index) {
+	cout << *data[index];
 }
 
 void Group::expel_student(const Student& person) {
