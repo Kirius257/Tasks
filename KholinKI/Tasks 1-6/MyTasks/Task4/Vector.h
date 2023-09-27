@@ -24,8 +24,8 @@ public:
 	float operator*(const Vector& obj)const;// scalar product
 	Vector operator+(const Vector& obj);
 	Vector operator-(const Vector& obj);
-	Vector& operator=(const Vector& obj);
-	bool operator==(const Vector& obj);
+	const Vector& operator=(const Vector& obj);
+	bool operator==(const Vector& obj)const;
 
 	friend istream& operator>>(istream& stream, Vector& obj);//input
 	friend ostream& operator<<(ostream& stream, const Vector& obj);//output

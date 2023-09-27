@@ -7,24 +7,34 @@ using namespace std;
 int main() {
 	setlocale(LC_ALL, "rus");
 	try {
-		Vector<float> v1(4), v2(4),res(4),result(4);
-		cout << "Input components vector: " << endl;
-		v1.input();
-		cout << "Input components vector: " << endl;
-		v2.input();
+		int l1, l2;
+		cout << "Input size vector v1: " << endl;
+		cin >> l1;
+		
+
+		cout << "Input size vector v2: " << endl;
+		cin >> l2;
+	
+
+		Vector<float> v1(l1), v2(l2), res, result;
+
+		cout << "Input components vector v1: " << endl;
+		cin >> v1;
+		cout << "Input components vector v2: " << endl;
+		cin >> v2;
 
 		res = v1 + v2;
 		result = v1 - v2;
 
-		v1.output();
+		cout << v1;
 		cout << endl;
-		v2.output();
+		cout << v2;
 		cout << endl;
 		cout << "Result +" << endl;
-		res.output();
+		cout << res;
 		cout << endl;
 		cout << "Result -" << endl;
-		result.output();
+		cout << result;
 		cout << endl;
 		double len = v1.length();
 		cout << "Lenght v1 " << len << endl;

@@ -77,7 +77,7 @@ float Vector::angle(const Vector& obj)const {
 	return value;
 }
 
-bool Vector::operator==(const Vector& obj) {
+bool Vector::operator==(const Vector& obj)const {
 	if (n != obj.n) {
 		return false;
 	}
@@ -91,7 +91,7 @@ bool Vector::operator==(const Vector& obj) {
 	return true;
 }
 
-Vector& Vector::operator=(const Vector& obj) {
+const Vector& Vector::operator=(const Vector& obj) {
 	if (*this == obj) {
 		return *this;
 	}

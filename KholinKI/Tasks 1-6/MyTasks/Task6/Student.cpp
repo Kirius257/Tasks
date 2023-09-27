@@ -31,7 +31,7 @@ Student::~Student() {
 }
 
 
-Student& Student::operator=(const Student& obj) {
+const Student& Student::operator=(const Student& obj) {
 	surname = obj.surname;
 	name = obj.name;
 	patronymic = obj.patronymic;

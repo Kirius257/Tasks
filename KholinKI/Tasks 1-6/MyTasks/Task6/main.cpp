@@ -13,5 +13,5 @@ int main() {
 	const string student_groups = "Students.txt";
 	ListGroups faculty(student_groups);
 	cout << faculty;
-	return 0;
-}
+	return 0; 
+}                                                                                                                                                                                                                  

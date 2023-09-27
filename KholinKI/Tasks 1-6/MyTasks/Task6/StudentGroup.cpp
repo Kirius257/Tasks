@@ -90,7 +90,8 @@ int Group::find(const Student& obj)const {
 
 
 
-void Group::find_student()const {
+int Group::find_student()const {
+	//массив индексов
 	cout << "Choose sign: " << endl;
 	cout << "1. Search on surname" << endl;
 	cout << "2. Search on name" << endl;
@@ -164,7 +165,7 @@ void Group::expel_student(const Student& person) {
 }
 
 
-Group& Group::operator=(const Group& obj) {
+const Group& Group::operator=(const Group& obj) {
 	num_students = obj.num_students;
 	current_num = obj.current_num;
 	step = obj.step;

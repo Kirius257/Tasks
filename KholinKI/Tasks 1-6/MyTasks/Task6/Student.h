@@ -8,7 +8,7 @@ enum signs { surname_ = 1, name_ = 2, patronymic_ = 3, phone_number_ = 4 };
 struct Student {
 	string surname;
 	string name;
-	эспекто_патронум patronymic;
+	string patronymic;
 	long long num_phone;
 	Date* date;
 
@@ -18,7 +18,7 @@ struct Student {
 	Student(const Student& obj);
 	~Student();
 
-	Student& operator=(const Student& obj);
+	const Student& operator=(const Student& obj);
 	bool operator==(const Student& obj)const;
 
 	friend ostream& operator<<(ostream& stream, const Student& obj);

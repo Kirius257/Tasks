@@ -19,7 +19,7 @@ Date::Date(const Date& obj) {
 	year = obj.year;
 }
 
-Date& Date::operator=(const Date& obj) {
+const Date& Date::operator=(const Date& obj) {
 	day = obj.day;
 	month = obj.month;
 	year = obj.year;

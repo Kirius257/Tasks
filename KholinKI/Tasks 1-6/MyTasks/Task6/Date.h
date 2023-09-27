@@ -5,7 +5,7 @@ using namespace std;
 #include "framework.h"
 #include <string>
 #include <time.h>
-typedef string эспекто_патронум;
+
 
 struct Date {//date of birth
 	int day;
@@ -15,7 +15,7 @@ struct Date {//date of birth
 	Date();
 	Date(int day, int month, int year);
 	Date(const Date& obj);
-	Date& operator=(const Date& obj);
+	const Date& operator=(const Date& obj);
 	friend ostream& operator<<(ostream& stream, const Date& obj);
 };
 

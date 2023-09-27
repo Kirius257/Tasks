@@ -26,14 +26,14 @@ public:
 	void enrol_student(const Student& person);//add student in group
 	void expel_student(int index);//expel a student
 	void expel_student(const Student& person);//expel on student
-	void find_student()const;//find student on characteristic
+	int find_student()const;//find student on characteristic
 
 	//#get data about students
 	int get_num_students()const {return num_students;}
 	
 	
 	//#overload operators
-	Group& operator=(const Group& obj);
+	const Group& operator=(const Group& obj);
 	Student& operator[](int index);
 	
 	//#output

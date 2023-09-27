@@ -5,11 +5,13 @@
 #include <iostream>
 
 
+
 template <class T> class Vector {
 private:
 	T* vec;
 	int size;
 public:
+	Vector();
 	Vector(int size);
 	Vector(const Vector<T>& obj);
 	~Vector();
@@ -22,12 +24,32 @@ public:
 	double operator*(const Vector<T>& obj)const;// scalar product
 	Vector operator+(const Vector<T>& obj);
 	Vector operator-(const Vector<T>& obj);
-	Vector& operator=(const Vector<T>& obj);
+	const Vector& operator=(const Vector<T>& obj);
 	bool operator==(const Vector<T>& obj)const;
 	
-	void output()const;
-	void input();
+	void set_size(int size) { this->size = size; }
+
+	friend istream& operator>>(istream& stream, Vector<T>& obj) {
+		for (int i = 0; i < obj.size; i++) {
+			stream >> obj.vec[i];
+		}
+		return stream;
+	}
+	
+	friend ostream& operator<<(ostream& stream, const Vector<T>& obj) {
+		for (int i = 0; i < obj.size; i++) {
+			stream << obj.vec[i] << " ";
+		}
+		stream << endl;
+		return stream;
+	}
 };
+
+template <class T>
+Vector<T>::Vector() {
+	size = 0;
+	vec = nullptr;
+}
 
 template <class T>
 Vector<T>::Vector(int size) {
@@ -40,7 +62,8 @@ Vector<T>::Vector(int size) {
 
 template <class T>
 Vector<T>::Vector(const Vector<T>& obj) {
-	this->size = size;
+	this->size = obj.size;
+	vec = new T[size];
 	for (int i = 0; i < size; i++) {
 		vec[i] = obj.vec[i];
 	}
@@ -70,7 +93,7 @@ double Vector<T>::length()const {
 
 template <class T>
 Vector<T> Vector<T>::operator+(const Vector<T>& obj) {
-	Vector<T>res1(size);
+	Vector<T>res1(*this);
 	if (size != obj.size) {
 		throw Exeptions<int>(different_vectors, size);
 	}
@@ -84,7 +107,7 @@ Vector<T> Vector<T>::operator+(const Vector<T>& obj) {
 
 template <class T>
 Vector<T> Vector<T>::operator-(const Vector<T>& obj) {
-	Vector<T>res1(size);
+	Vector<T>res1(*this);
 	if (size != obj.size) {
 		throw Exeptions<int>(different_vectors, size);
 	}
@@ -98,7 +121,7 @@ Vector<T> Vector<T>::operator-(const Vector<T>& obj) {
 
 
 template <class T>
-Vector<T>& Vector<T>::operator=(const Vector<T>& obj) {
+const Vector<T>& Vector<T>::operator=(const Vector<T>& obj) {
 	if (*this == obj) {
 		return *this;
 	}
@@ -128,18 +151,10 @@ bool Vector<T>::operator==(const Vector<T>& obj)const {
 	return true;
 }
 
-template <class T>
-void Vector<T>::input(){
-	for (int i = 0; i < size; i++) {
-		cin >> vec[i];
-	}
-}
 
-template <class T>
-void Vector<T>::output()const {
-	for (int i = 0; i < size; i++) {
-		cout << vec[i] << " ";
-	}
-	cout << endl;
-}
+
+
+
+
+
 #endif
