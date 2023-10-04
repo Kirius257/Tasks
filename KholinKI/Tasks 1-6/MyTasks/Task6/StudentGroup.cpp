@@ -69,7 +69,7 @@ void Group::enrol_student(const Student& person) {
 		*(data[index]) = person;
 		current_num++;
 	}
-	else { cout << "such a student already is located in group!" << test << endl; }
+	/*else { cout << "such a student already is located in group!" << test << endl; }*/
 }
 
 void Group::expel_student(int index) {

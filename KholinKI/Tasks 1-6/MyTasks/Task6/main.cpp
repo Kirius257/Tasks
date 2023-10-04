@@ -45,7 +45,7 @@ int main() {
 					delete[] indices;
 					break;
 				}
-				int size = sizeof(indices) / sizeof(int*);
+				int size = _msize(indices) /sizeof(int);
 				for (int i = 0; i < size; i++) {
 					faculty.list[number]->show(indices[i]);
 				}
@@ -65,7 +65,7 @@ int main() {
 					delete[] indices;
 					break;
 				}
-				int size = sizeof(indices) / sizeof(int*);
+				int size = _msize(indices) / sizeof(int);
 				for (int i = 0; i < size; i++) {
 					faculty.list[number]->show(indices[i]);
 				}
@@ -85,7 +85,7 @@ int main() {
 					delete[] indices;
 					break;
 				}
-				int size = sizeof(indices) / sizeof(int*);
+				int size = _msize(indices) / sizeof(int);
 				for (int i = 0; i < size; i++) {
 					faculty.list[number]->show(indices[i]);
 				}
